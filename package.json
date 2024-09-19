@@ -1,0 +1,19 @@
+{
+  "name": "nestjs-utc-conversion",
+  "version": "1.0.0",
+  "scripts": {
+    "start": "nest start",
+    "start:prod": "node dist/main.js",
+    "build": "tsc"
+  },
+  "dependencies": {
+    "@nestjs/common": "^9.0.0",
+    "@nestjs/core": "^9.0.0",
+    "moment-timezone": "^0.5.34",
+    "@nestjs/platform-express": "^9.0.0"
+  },
+  "devDependencies": {
+    "@nestjs/cli": "^9.0.0",
+    "typescript": "^4.0.0"
+  }
+}
