@@ -1,19 +1,28 @@
 {
-  "name": "nestjs-utc-conversion",
+  "name": "proto",
   "version": "1.0.0",
   "scripts": {
-    "start": "nest start",
-    "start:prod": "node dist/main.js",
-    "build": "tsc"
+    "build": "tsc",
+    "start": "node dist/main.js",
+    "start:dev": "ts-node src/main.ts",
+    "test": "jest",
+    "test:watch": "jest --watch"
   },
   "dependencies": {
     "@nestjs/common": "^9.0.0",
     "@nestjs/core": "^9.0.0",
-    "moment-timezone": "^0.5.34",
-    "@nestjs/platform-express": "^9.0.0"
+    "@nestjs/platform-express": "^9.0.0",
+    "date-fns": "^2.30.0",
+    "date-fns-tz": "^1.1.4",
+    "reflect-metadata": "^0.2.2"
   },
   "devDependencies": {
     "@nestjs/cli": "^9.0.0",
-    "typescript": "^4.0.0"
+    "@nestjs/schematics": "^9.0.0",
+    "@nestjs/testing": "^9.0.0",
+    "@types/node": "^18.0.0",
+    "jest": "^28.0.0",
+    "ts-jest": "^28.0.0",
+    "typescript": "^5.0.0"
   }
 }

@@ -1,26 +1,23 @@
-# Usa una imagen oficial de Node.js
-FROM node:18
+# Usa una imagen base de Node.js
+FROM node:18-alpine
 
-# Establecer el directorio de trabajo dentro del contenedor
+# Crea y establece el directorio de trabajo
 WORKDIR /usr/src/app
 
-# Copiar los archivos de configuración y dependencias
+# Copia los archivos de dependencias
 COPY package*.json ./
 
-# Instalar las dependencias
-RUN npm install
+# Instala las dependencias
+RUN yarn install
 
-# Copiar todo el código fuente
+# Copia el resto de los archivos de la aplicación
 COPY . .
 
-# Compilar el proyecto TypeScript
-RUN npm run build
+# Compila el código TypeScript
+RUN yarn build
 
-# Exponer el puerto de la aplicación
+# Expone el puerto en el que la aplicación escuchará
 EXPOSE 3000
 
-# Establecer la zona horaria del servidor en UTC (opcional)
-ENV TZ=Etc/UTC
-
-# Ejecutar la aplicación
-CMD ["npm", "run", "start:prod"]
+# Comando para iniciar la aplicación
+CMD ["node", "dist/main.js"]
