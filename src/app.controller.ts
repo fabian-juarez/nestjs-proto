@@ -1,5 +1,5 @@
 import { Controller, Get, Query } from "@nestjs/common";
-import { format, utcToZonedTime, zonedTimeToUtc } from "date-fns-tz";
+import { format, toZonedTime, fromZonedTime } from "date-fns-tz";
 
 @Controller()
 export class AppController {
@@ -8,7 +8,7 @@ export class AppController {
     const timeZone = "America/Mexico_City"; // Ajustar a GMT-6
 
     // Obtener la fecha y hora actual en la zona horaria local
-    const nowInTimeZone = utcToZonedTime(new Date(), timeZone);
+    const nowInTimeZone = toZonedTime(new Date(), timeZone);
 
     // Parsear el parámetro runAt
     const [hour, minute] = runAt.split(":").map(Number);
@@ -21,7 +21,7 @@ export class AppController {
     }
 
     // Convertir el tiempo objetivo a UTC
-    const targetTimeInUtc = zonedTimeToUtc(targetTimeInTimeZone, timeZone);
+    const targetTimeInUtc = fromZonedTime(targetTimeInTimeZone, timeZone);
 
     // Registrar la información
     console.log(
